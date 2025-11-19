@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0; 
+  padding: 0; 
+}
+
+.appContainer {
+  /* Define a altura mínima para ser a tela inteira */
+  min-height: 100vh; 
+
+  display: flex;
+  justify-content: center; 
+  /* Centraliza verticalmente */
+  align-items: center; 
+  /* Garante que o conteúdo não se espalhe desnecessariamente */
+  /* Outros estilos, como padding, background, etc. */
+
+
+  background-image: url('/img/bg-pokemon.png');  
+  background-size: cover; 
+  background-position: center center;
+  background-repeat: no-repeat; 
+  
+}
+
+.quizContent {
+  max-width: 700px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  
+  align-items: flex-end; 
+  border: 3px solid #00a8ff;
+  width: 90%;
+  padding: 30px;
+  background-color: #ffffff; /* Exemplo */
+  border-radius: 8px; /* Exemplo */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Exemplo */
+
+   background-image: url('/img/pokemonform.png'); 
+ animation: backgroundZoom 3s linear infinite alternate;
+  background-position: center center;
+  background-repeat: no-repeat; 
+  background-size:  cover;
+  
+}
+
+.quizBox{
+  display: flex;
+  flex-direction: column;
+  background-color: #fdfbd4;
+  border: 3px solid #00a8ff;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  width: 100%;
+  padding: 20px;
+}
+
+.quizBox h2 {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px; /* Adiciona espaço após a pergunta */
+    font-family: 'Press Start 2P', cursive; 
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.controlsContainer {  
+  display: flex;  
+  width: 100%;  
+  gap: 20px; 
+  justify-content: space-between;
+  margin-top: 25px;  
+   
+ 
+}
+
+.radio { 
+  flex-basis: 70%;
+  flex-grow: 1; 
+  
+  /* CHAVE 1: Ativa o layout de Grade/Grid */
+  display: grid; 
+  
+  /* CHAVE 2: Define duas colunas de tamanho igual */
+  grid-template-columns: 1fr 1fr; 
+  
+  /* Adiciona espaçamento entre as células da grade */
+  gap: 10px; 
+  
+  /* Remove o background vermelho, pois foi apenas para teste */
+  background: none; 
+}
+
+.radio label {
+ 
+  display: flex; 
+  align-items: center; /* Centraliza o texto e a imagem verticalmente */
+  background-color: #fff;
+  /* Estilo visual da sua caixa (padding, borda) */
+  padding: 15px; 
+  border: 3px solid #00a8ff;
+  min-height: 75px;
+  border-radius: 8px;
+  cursor: pointer; /* Indica que é clicável */
+  transition: all 0.2s; /* Adiciona uma transição suave */
+  font-family: 'Press Start 2P', cursive; 
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.radio input[type="radio"] {
+  /* CHAVE: Esconde a bolinha padrão */
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.radio label:hover {
+  border-color: #007bff; /* Cor quando o mouse passa */
+}
+
+
+
+.radio label:has(input[type="radio"]:checked) {
+  border-color: #4CAF50; /* Uma cor verde para indicar seleção */
+  background-color: #e6ffe6;
+}
+
+.optionText {
+  /* CHAVE: Usar flexbox no span para alinhamento interno e garantir que ele ocupe o espaço */
+  display: flex;
+  align-items: center;
+}
+
+.radio input[type="radio"] + .optionText::before {
+  content: '';
+  display: inline-block;
+  width: 28px; 
+  height: 28px;  
+  margin-right: 15px; 
+  background-image: url('/img/pokebola1.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.radio input[type="radio"]:checked + .optionText::before {
+  /* Troca a imagem pela Pokébola selecionada/completa */
+  background-image: url('/img/poke3.png'); /* <-- AJUSTE O CAMINHO DA IMAGEM */
+}
+
+.buttons { 
+flex-basis: 30%;
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;    
+  justify-content: center;
+  align-items: center;
+  border: solid 1px red;
+  background-color: #fdfbd4;
+  border: 3px solid #00a8ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.buttons button{
+  padding: 20px;
+  background: red;
+  background: transparent; /* Fundo transparente */
+    border: none;           /* Sem borda */
+    
+ 
+    color: #ffffff; /* Cor branca para o texto */
+
+      text-shadow: 
+        -2px -2px 0 #000,  /* Cima-esquerda */
+        2px -2px 0 #000,   /* Cima-direita */
+        -2px 2px 0 #000,   /* Baixo-esquerda */
+        2px 2px 0 #000;    /* Baixo-direita */
+
+
+    padding: 10px 15px;     
+    cursor: pointer;         
+    font-size: 14px;      
+    
+  
+    font-family: 'Press Start 2P', cursive;
+}
+
+.buttons button:hover {
+   background: #00a8ff;
+}
+
+.final{
+  display: flex;
+  flex-direction: column;
+  background-color: #fdfbd4;
+  border: 3px solid #00a8ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  height: 300px;
+  width: 100%;
+  padding: 20px;  
+  font-family: 'Press Start 2P', cursive;
+}
+
+.final h2{
+     font-size: 14px;   
+     margin-bottom: 40px;
+}
+.final p {
+     font-size: 10px; 
+     line-height: 1.8;  
+}
+
+.final span {
+     font-size: 12px; 
+     line-height: 1.8;  
+}
+
+
+
+
+
+@keyframes backgroundZoom {
+  /* Estado inicial: Imagem ligeiramente menor que o cover */
+  0% {
+    background-size: 100% 100%; /* Começa com o tamanho exato do contêiner */
+  }
+  
+  /* Meio da animação: Imagem ligeiramente maior (zoom in) */
+  50% {
+    background-size: 102% 102%; /* Aumenta 10% para um zoom sutil */
+  }
+  
+  /* Fim da animação: Volta ao tamanho inicial */
+  100% {
+    background-size: 100% 100%; /* Volta ao tamanho normal */
+  }
+}
+
+@media (max-width: 768px ) {
+  
+  /* 1. LAYOUT 70%/30% E ALINHAMENTO LATERAL */
+  .controlsContainer {
+  flex-direction: column;
+  }
+.quizBox h2 {
+margin-bottom: 40px;
+font-size: 10px;
+
+}
+
+
+  .radio {
+  grid-template-columns: 1fr; 
+
+  }
+
+.radio label {
+
+  padding: 4px; 
+  border: 3px solid #00a8ff;
+  min-height: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s; 
+  font-family: 'Press Start 2P', cursive; 
+  font-size: 10px;
+  line-height: 1.8;
+}
+.buttons{
+  flex-direction: row-reverse;
+  padding-left: 10px;
+  padding-right: 10px;
+ 
+  gap: 0px;
+
+  
+}
+.buttons button{
+   font-size: 10px;
+}
+.quizContent{
+   animation: NONE;
+    background-size:  COVER;
+    background-position: calc(50% - 15px) center;
+}
+.final{
+  height: 450px;
+  justify-content: center;
+}
+.final h2{
+     font-size: 14px;   
+     margin-bottom: 20px;
+}
+
+}
+
+.animeLeft{
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft .3s forwards;
+}
+
+@keyframes animeLeft{
+to{
+  opacity: 1;
+  transform: initial;
+  }
+}
